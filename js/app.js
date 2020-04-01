@@ -1,6 +1,9 @@
 'use strict';
 $(document).ready(function() {
 
+ var constArr = [];
+ var selectArr =[];
+
 //constructor:
     function Img(img) {
       this.image_url = img.image_url;
@@ -8,6 +11,7 @@ $(document).ready(function() {
       this.description = img.description;
       this.keyword = img.keyword;
       this.horns = img.horns;
+      constArr.push(this);
     }
 //rendering imgs method:    
     Img.prototype.render = function() {
@@ -24,11 +28,10 @@ $(document).ready(function() {
                let img = new Img(ItemsArr);
                 img.render();
                 img.menu(); 
-                renderMenu();
+                // renderMenu();
             });
           });
     };
-    readJson(1);
 
 //appending options method:
 Img.prototype.menu = function(){
@@ -40,15 +43,12 @@ Img.prototype.menu = function(){
 // render filtered imgs function
 const renderMenu = () =>
     $('select').on('change' , () => {
-        // console.log('hii');
-
     let selectValue = $('select').val();
-    console.log(selectValue);
     $(' #horns-rendered section').hide();
     $(`.${selectValue}`).show();
 })
 
-// rendering imgs in diff pages method:    
+// rendering imgs in diff pages func:    
 function pageRender(){
     $('#button1').on('click',function(){
         readJson(1);
@@ -57,7 +57,26 @@ function pageRender(){
         readJson(2);
     })
 }
+// sorting imgs func:    
+function sortImg(pageNum){
+    $(`#button${pageNum}`).on('click',function(){
+        constArr.sort((a,b) => {
+            if( a.title === b.title){return 1;
+            }
+            if( a.title > b.title){return 2;}
+            if( a.title < b.title){return 0;}
+        });
+        console.log(constArr);
+
+    });
+}
 pageRender();
 renderMenu();
+readJson(1);
+sortImg(3);
+sortImg(4);
 
-    });      
+
+    });   
+    
+    
