@@ -1,0 +1,49 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Indie+Flower&display=swap');
+
+img{
+    height: 200px;
+    width: 200px;
+    }
+/* section:first-of-type{
+    display: none;
+} */
+#img-template{
+    display: none;
+}
+section{
+float: left;
+background-color: rgba(255, 228, 196, 0.322);
+border-radius: 30px;
+margin:3%;
+padding: 2%;
+height: 300px;
+width: 300px;
+text-align: center;
+
+}
+select {
+    margin: 0 auto;
+    border-radius: 30px;
+    padding: 10px;
+    width: 230px;
+    height: 70px;
+    font-family: 'Indie Flower', cursive;
+font-weight: bolder;
+    text-align: center;
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+section p ,option{
+/* width: 300px; */
+font-size: 20px;
+font-family: 'Indie Flower', cursive;
+line-height: 20px;
+margin: 0 auto;
+}
+
+h2{
+    font-size: 30px;
+    padding-bottom: 15px;
+    font-family: 'Indie Flower', cursive;
+}
