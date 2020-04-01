@@ -12,12 +12,9 @@
   <body>
     <header>
       <h1>The Gallery of Horns</h1>
-      <div class="divButton">
-      <input type="checkbox" class="page1" name="page1" value="page1">
-      <label for="page1">page one</label><br>
-      <input type="checkbox" class="page2" name="page2" value="page2">
-      <label for="page2">page two</label><br>
-      </div>
+      <button value='page1' id='button1'>page 1</button>
+      <button value='page2' id='button2'>page 2</button>
+
       <select name="dropdown">
         <option value="default">Filter by Keyword</option>
       </select>
@@ -25,18 +22,18 @@
 
     <main>
         <script id="img-template" type="x-tmpl-mustache">
-        <section class="{{Keyword}}" >
-            <div>
-              <h2>{{title}}</h2>
-              <img src="{{image_url}}" alt="" />
-              <p>{{description}}</p>
-            </div>
-        </section>
+            <section class="{{keyword}}" id="renderSection">
+            
+                <h2>{{title}}</h2>
+                <img src="{{image_url}}" alt="" />
+                <p>{{description}}</p>
+            
+            </section>
           </script>
+          <section id="horns-rendered"></section>
     </main>
     <script src="https://unpkg.com/mustache@latest"></script>
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
     <script src="js/app.js"></script>

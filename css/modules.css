@@ -5,13 +5,10 @@ img{
     height: 200px;
     width: 200px;
     }
-/* section:first-of-type{
+/* #img-template{
     display: none;
 } */
-#img-template{
-    display: none;
-}
-section{
+#renderSection{
 float: left;
 background-color: rgba(255, 228, 196, 0.322);
 border-radius: 30px;
