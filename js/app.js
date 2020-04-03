@@ -58,24 +58,35 @@ function pageRender(){
     })
 }
 // sorting imgs func:    
-function sortImg(pageNum){
-    $(`#button${pageNum}`).on('click',function(){
-        constArr.sort((a,b) => {
-            if( a.title === b.title){return 1;
-            }
-            if( a.title > b.title){return 2;}
-            if( a.title < b.title){return 0;}
-        });
-        console.log(constArr);
-
-    });
+function sortBy( array,property){
+    array.sort((a,b) => {
+        let firstItem = a[property];
+        let secondItem = b[property];
+        if (property === 'title'){
+            firstItem = firstItem.toUpperCase();
+            secondItem = secondItem.toUpperCase();
+        }
+        if( firstItem > secondItem){return 1;
+        }
+        else if( secondItem > firstItem){return -1;}
+        else {return 0;}
+});
 }
+$('#sortingDiv').on('click', e => {
+    if(e.target.id !== "sortingDiv"){
+        if(e.target.id === "titleSort"){
+            sortBy(constArr,'title');
+        }else if(e.target.id === "hornSort"){
+            sortBy(constArr,'horns');
+        }
+    }
+    $('#horns-rendered').html('');
+    constArr.forEach(horn => horn.render())
+    });
+ 
 pageRender();
 renderMenu();
 readJson(1);
-sortImg(3);
-sortImg(4);
-
 
     });   
     
